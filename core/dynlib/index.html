@@ -246,6 +246,7 @@
 <li><a href="/core/sys/linux">linux</a></li>
 <li><a href="/core/sys/orca">orca</a></li>
 <li><a href="/core/sys/posix">posix</a></li>
+<li><a href="/core/sys/unix">unix</a></li>
 <li><a href="/core/sys/valgrind">valgrind</a></li>
 <li><a href="/core/sys/windows">windows</a></li>
 </ul>
@@ -423,7 +424,7 @@ The number of symbols assigned on success. <code>ok</code> = true if <code>count
 <div class="pkg-entity">
 <h3 id="load_library"><span><a class="doc-id-link" href="#load_library">load_library<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L40"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">load_library :: <span class="keyword-type">proc</span>(path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, global_symbols: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false) -> (library: <a class="code-typename" href="/core/dynlib/#Library">Library</a>, did_load: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
+<pre class="doc-code">load_library :: <span class="keyword-type">proc</span>(path: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, global_symbols: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a> = false, allocator := <a href="/base/runtime/#Context">context.temp_allocator</a>) -> (library: <a class="code-typename" href="/core/dynlib/#Library">Library</a>, did_load: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -455,7 +456,7 @@ load_my_library :: proc() {
 <div class="pkg-entity">
 <h3 id="symbol_address"><span><a class="doc-id-link" href="#symbol_address">symbol_address<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/dynlib/lib.odin#L101"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">symbol_address :: <span class="keyword-type">proc</span>(library: <a class="code-typename" href="/core/dynlib/#Library">Library</a>, symbol: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>) -> (ptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, found: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) <span class="directive">#optional_ok</span> {…}</pre>
+<pre class="doc-code">symbol_address :: <span class="keyword-type">proc</span>(library: <a class="code-typename" href="/core/dynlib/#Library">Library</a>, symbol: <a href="/base/builtin#string"><span class="doc-builtin">string</span></a>, allocator := <a href="/base/runtime/#Context">context.temp_allocator</a>) -> (ptr: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, found: <a href="/base/builtin#bool"><span class="doc-builtin">bool</span></a>) <span class="directive">#optional_ok</span> {…}</pre>
 </div>
 <details class="odin-doc-toggle" open>
 <summary class="hideme"><span>&nbsp;</span></summary>
@@ -531,7 +532,7 @@ load_then_unload_my_library :: proc() {
 <li><em>(hidden platform specific files)</em></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2024-10 (vendor "odin") Windows_amd64 @ 2024-10-29 21:12:29.477613200 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-10 (vendor "odin") Windows_amd64 @ 2024-10-30 21:11:16.269695500 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">

@@ -246,6 +246,7 @@
 <li><a href="/core/sys/linux">linux</a></li>
 <li><a href="/core/sys/orca">orca</a></li>
 <li><a href="/core/sys/posix">posix</a></li>
+<li><a href="/core/sys/unix">unix</a></li>
 <li><a href="/core/sys/valgrind">valgrind</a></li>
 <li><a href="/core/sys/windows">windows</a></li>
 </ul>
@@ -319,9 +320,10 @@
 <div>
 <details class="doc-index" id="doc-index-Types" aria-labelledby="#doc-index-Types-header">
 <summary id="#doc-index-Types-header">
-Types (115)</summary>
+Types (117)</summary>
 <ul>
 <li><a href="#FILE">FILE</a></li>
+<li><a href="#Locale_Category">Locale_Category</a></li>
 <li><a href="#Whence">Whence</a></li>
 <li><a href="#atomic_bool">atomic_bool</a></li>
 <li><a href="#atomic_char">atomic_char</a></li>
@@ -391,6 +393,7 @@ Types (115)</summary>
 <li><a href="#intmax_t">intmax_t</a></li>
 <li><a href="#intptr_t">intptr_t</a></li>
 <li><a href="#jmp_buf">jmp_buf</a></li>
+<li><a href="#lconv">lconv</a></li>
 <li><a href="#ldiv_t">ldiv_t</a></li>
 <li><a href="#lldiv_t">lldiv_t</a></li>
 <li><a href="#long">long</a></li>
@@ -442,7 +445,7 @@ Types (115)</summary>
 <div>
 <details class="doc-index" id="doc-index-Constants" aria-labelledby="#doc-index-Constants-header">
 <summary id="#doc-index-Constants-header">
-Constants (89)</summary>
+Constants (96)</summary>
 <ul>
 <li><a href="#ATOMIC_BOOL_LOCK_FREE">ATOMIC_BOOL_LOCK_FREE</a></li>
 <li><a href="#ATOMIC_CHAR16_T_LOCK_FREE">ATOMIC_CHAR16_T_LOCK_FREE</a></li>
@@ -483,6 +486,13 @@ Constants (89)</summary>
 <li><a href="#INT64_MIN">INT64_MIN</a></li>
 <li><a href="#INT8_MAX">INT8_MAX</a></li>
 <li><a href="#INT8_MIN">INT8_MIN</a></li>
+<li><a href="#LC_ALL">LC_ALL</a></li>
+<li><a href="#LC_COLLATE">LC_COLLATE</a></li>
+<li><a href="#LC_CTYPE">LC_CTYPE</a></li>
+<li><a href="#LC_MESSAGES">LC_MESSAGES</a></li>
+<li><a href="#LC_MONETARY">LC_MONETARY</a></li>
+<li><a href="#LC_NUMERIC">LC_NUMERIC</a></li>
+<li><a href="#LC_TIME">LC_TIME</a></li>
 <li><a href="#L_tmpnam">L_tmpnam</a></li>
 <li><a href="#MATH_ERREXCEPT">MATH_ERREXCEPT</a></li>
 <li><a href="#MATH_ERRNO">MATH_ERRNO</a></li>
@@ -551,7 +561,7 @@ Variables (4)</summary>
 <div>
 <details class="doc-index" id="doc-index-Procedures" aria-labelledby="#doc-index-Procedures-header">
 <summary id="#doc-index-Procedures-header">
-Procedures (327)</summary>
+Procedures (329)</summary>
 <ul>
 <li><a href="#ATOMIC_VAR_INIT">ATOMIC_VAR_INIT</a></li>
 <li><a href="#CMPLX">CMPLX</a></li>
@@ -730,6 +740,7 @@ Procedures (327)</summary>
 <li><a href="#ldiv">ldiv</a></li>
 <li><a href="#llabs">llabs</a></li>
 <li><a href="#lldiv">lldiv</a></li>
+<li><a href="#localeconv">localeconv</a></li>
 <li><a href="#localtime">localtime</a></li>
 <li><a href="#longjmp">longjmp</a></li>
 <li><a href="#malloc">malloc</a></li>
@@ -772,6 +783,7 @@ Procedures (327)</summary>
 <li><a href="#scanf">scanf</a></li>
 <li><a href="#setbuf">setbuf</a></li>
 <li><a href="#setjmp">setjmp</a></li>
+<li><a href="#setlocale">setlocale</a></li>
 <li><a href="#setvbuf">setvbuf</a></li>
 <li><a href="#signal">signal</a></li>
 <li><a href="#snprintf">snprintf</a></li>
@@ -1060,6 +1072,24 @@ Procedure Groups (114)</summary>
 <ul>
 <li><a href="/core/c/libc/#fopen">fopen</a></li>
 <li><a href="/core/c/libc/#tmpfile">tmpfile</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="Locale_Category"><span><a class="doc-id-link" href="#Locale_Category">Locale_Category<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/locale.odin#L39"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">Locale_Category :: <span class="keyword-type">enum</span> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> {
+	ALL      = 0, 
+	COLLATE  = 1, 
+	CTYPE    = 2, 
+	MESSAGES = 6, 
+	MONETARY = 3, 
+	NUMERIC  = 4, 
+	TIME     = 5, 
+}</pre>
+</div>
+<h5>Related Procedures With Parameters</h5>
+<ul>
+<li><a href="/core/c/libc/#setlocale">setlocale</a></li>
 </ul>
 </div>
 <div class="pkg-entity">
@@ -1654,6 +1684,43 @@ relevant platforms.</p>
 <ul>
 <li><a href="/core/c/libc/#longjmp">longjmp</a></li>
 <li><a href="/core/c/libc/#setjmp">setjmp</a></li>
+</ul>
+</div>
+<div class="pkg-entity">
+<h3 id="lconv"><span><a class="doc-id-link" href="#lconv">lconv<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/locale.odin#L56"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">lconv :: <span class="keyword-type">struct</span> {
+	decimal_point:        <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+	thousand_sep:         <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+	grouping:             <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+	int_curr_symbol:      <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+	currency_symbol:      <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+	mon_decimal_points:   <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+	mon_thousands_sep:    <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+	mon_grouping:         <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+	positive_sign:        <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+	negative_sign:        <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>,
+	int_frac_digits:      <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	frac_digits:          <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	p_cs_precedes:        <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	p_sep_by_space:       <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	n_cs_precedes:        <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	n_sep_by_space:       <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	p_sign_posn:          <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	n_sign_posn:          <a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>,
+	_W_decimal_point:     [^]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> <span class="string">`fmt:"s,0"`</span>,
+	_W_thousands_sep:     [^]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> <span class="string">`fmt:"s,0"`</span>,
+	_W_int_curr_symbol:   [^]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> <span class="string">`fmt:"s,0"`</span>,
+	_W_currency_symbol:   [^]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> <span class="string">`fmt:"s,0"`</span>,
+	_W_mon_decimal_point: [^]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> <span class="string">`fmt:"s,0"`</span>,
+	_W_mon_thousands_sep: [^]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> <span class="string">`fmt:"s,0"`</span>,
+	_W_positive_sign:     [^]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> <span class="string">`fmt:"s,0"`</span>,
+	_W_negative_sign:     [^]<a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a> <span class="string">`fmt:"s,0"`</span>,
+}</pre>
+</div>
+<h5>Related Procedures With Returns</h5>
+<ul>
+<li><a href="/core/c/libc/#localeconv">localeconv</a></li>
 </ul>
 </div>
 <div class="pkg-entity">
@@ -2416,6 +2483,48 @@ which means libc does not export standard functions for them.</p>
 <h3 id="INT8_MIN"><span><a class="doc-id-link" href="#INT8_MIN">INT8_MIN<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/types.odin#L75"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">INT8_MIN: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> : c.INT8_MIN</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="LC_ALL"><span><a class="doc-id-link" href="#LC_ALL">LC_ALL<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/locale.odin#L115"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">LC_ALL :: 0</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="LC_COLLATE"><span><a class="doc-id-link" href="#LC_COLLATE">LC_COLLATE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/locale.odin#L116"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">LC_COLLATE :: 1</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="LC_CTYPE"><span><a class="doc-id-link" href="#LC_CTYPE">LC_CTYPE<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/locale.odin#L117"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">LC_CTYPE :: 2</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="LC_MESSAGES"><span><a class="doc-id-link" href="#LC_MESSAGES">LC_MESSAGES<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/locale.odin#L118"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">LC_MESSAGES :: 6</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="LC_MONETARY"><span><a class="doc-id-link" href="#LC_MONETARY">LC_MONETARY<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/locale.odin#L119"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">LC_MONETARY :: 3</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="LC_NUMERIC"><span><a class="doc-id-link" href="#LC_NUMERIC">LC_NUMERIC<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/locale.odin#L120"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">LC_NUMERIC :: 4</pre>
+</div>
+</div>
+<div class="pkg-entity">
+<h3 id="LC_TIME"><span><a class="doc-id-link" href="#LC_TIME">LC_TIME<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/locale.odin#L121"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">LC_TIME :: 5</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -4014,6 +4123,20 @@ to be implemented natively in Odin assuming isunordered to prevent that.</p>
 </div>
 </div>
 <div class="pkg-entity">
+<h3 id="localeconv"><span><a class="doc-id-link" href="#localeconv">localeconv<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/locale.odin#L25"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">localeconv :: <span class="keyword-type">proc</span> <span class="string">"c"</span> () -> ^<a class="code-typename" href="/core/c/libc/#lconv">lconv</a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Sets the components of an object with the type lconv with the values appropriate for the
+formatting of numeric quantities (monetary and otherwise) according to the rules of the current
+locale.</p>
+<p><b>Returns:</b><br>a pointer to the lconv structure, might be invalidated by subsequent calls to localeconv() and setlocale()</p>
+<p><a href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/localeconv.html">More</a></p>
+</details>
+</div>
+<div class="pkg-entity">
 <h3 id="localtime"><span><a class="doc-id-link" href="#localtime">localtime<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/time.odin#L28"><em>Source</em></a></div></h3>
 <div>
 <pre class="doc-code">localtime :: <span class="keyword-type">proc</span> <span class="string">"c"</span> (timer: ^<a class="code-typename" href="/core/c/libc/#time_t">time_t</a>) -> ^<a class="code-typename" href="/core/c/libc/#tm">tm</a> ---</pre>
@@ -4335,6 +4458,19 @@ just so happens to coincide with the second argument of a function in the
 Win64 ABI. By giving our setjmp a second argument with the value of zero,
 the RDX register will contain zero and correctly set the flag to disable
 stack unwinding.</p>
+</details>
+</div>
+<div class="pkg-entity">
+<h3 id="setlocale"><span><a class="doc-id-link" href="#setlocale">setlocale<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/locale.odin#L36"><em>Source</em></a></div></h3>
+<div>
+<pre class="doc-code">setlocale :: <span class="keyword-type">proc</span> <span class="string">"c"</span> (category: <a class="code-typename" href="/core/c/libc/#Locale_Category">Locale_Category</a>, locale: <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a>) -> <a href="/base/builtin#cstring"><span class="doc-builtin">cstring</span></a> ---</pre>
+</div>
+<details class="odin-doc-toggle" open>
+<summary class="hideme"><span>&nbsp;</span></summary>
+<p>Selects the appropriate piece of the global locale, as specified by the category and locale arguments,
+and can be used to change or query the entire global locale or portions thereof.</p>
+<p><b>Returns:</b><br>the current locale if <code>locale</code> is <code>nil</code>, the set locale otherwise</p>
+<p><a href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/setlocale.html">More</a></p>
 </details>
 </div>
 <div class="pkg-entity">
@@ -6181,6 +6317,7 @@ they only differ by their return type.</p>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/complex.odin">complex.odin</a></li>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/ctype.odin">ctype.odin</a></li>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/errno.odin">errno.odin</a></li>
+<li><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/locale.odin">locale.odin</a></li>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/math.odin">math.odin</a></li>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/setjmp.odin">setjmp.odin</a></li>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/signal.odin">signal.odin</a></li>
@@ -6197,13 +6334,14 @@ they only differ by their return type.</p>
 <li><a href="https://github.com/odin-lang/Odin/tree/master/core/c/libc/wctype.odin">wctype.odin</a></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2024-10 (vendor "odin") Windows_amd64 @ 2024-10-29 21:12:29.443181300 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-10 (vendor "odin") Windows_amd64 @ 2024-10-30 21:11:16.234238100 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
 <ul>
 <li><a href="#pkg-Types">Types</a><ul>
 <li><a href="#FILE">FILE</a></li>
+<li><a href="#Locale_Category">Locale_Category</a></li>
 <li><a href="#Whence">Whence</a></li>
 <li><a href="#atomic_bool">atomic_bool</a></li>
 <li><a href="#atomic_char">atomic_char</a></li>
@@ -6273,6 +6411,7 @@ they only differ by their return type.</p>
 <li><a href="#intmax_t">intmax_t</a></li>
 <li><a href="#intptr_t">intptr_t</a></li>
 <li><a href="#jmp_buf">jmp_buf</a></li>
+<li><a href="#lconv">lconv</a></li>
 <li><a href="#ldiv_t">ldiv_t</a></li>
 <li><a href="#lldiv_t">lldiv_t</a></li>
 <li><a href="#long">long</a></li>
@@ -6360,6 +6499,13 @@ they only differ by their return type.</p>
 <li><a href="#INT64_MIN">INT64_MIN</a></li>
 <li><a href="#INT8_MAX">INT8_MAX</a></li>
 <li><a href="#INT8_MIN">INT8_MIN</a></li>
+<li><a href="#LC_ALL">LC_ALL</a></li>
+<li><a href="#LC_COLLATE">LC_COLLATE</a></li>
+<li><a href="#LC_CTYPE">LC_CTYPE</a></li>
+<li><a href="#LC_MESSAGES">LC_MESSAGES</a></li>
+<li><a href="#LC_MONETARY">LC_MONETARY</a></li>
+<li><a href="#LC_NUMERIC">LC_NUMERIC</a></li>
+<li><a href="#LC_TIME">LC_TIME</a></li>
 <li><a href="#L_tmpnam">L_tmpnam</a></li>
 <li><a href="#MATH_ERREXCEPT">MATH_ERREXCEPT</a></li>
 <li><a href="#MATH_ERRNO">MATH_ERRNO</a></li>
@@ -6597,6 +6743,7 @@ they only differ by their return type.</p>
 <li><a href="#ldiv">ldiv</a></li>
 <li><a href="#llabs">llabs</a></li>
 <li><a href="#lldiv">lldiv</a></li>
+<li><a href="#localeconv">localeconv</a></li>
 <li><a href="#localtime">localtime</a></li>
 <li><a href="#longjmp">longjmp</a></li>
 <li><a href="#malloc">malloc</a></li>
@@ -6639,6 +6786,7 @@ they only differ by their return type.</p>
 <li><a href="#scanf">scanf</a></li>
 <li><a href="#setbuf">setbuf</a></li>
 <li><a href="#setjmp">setjmp</a></li>
+<li><a href="#setlocale">setlocale</a></li>
 <li><a href="#setvbuf">setvbuf</a></li>
 <li><a href="#signal">signal</a></li>
 <li><a href="#snprintf">snprintf</a></li>

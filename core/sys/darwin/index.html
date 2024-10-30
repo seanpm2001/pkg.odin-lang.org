@@ -246,6 +246,7 @@
 <li><a href="/core/sys/linux">linux</a></li>
 <li><a href="/core/sys/orca">orca</a></li>
 <li><a href="/core/sys/posix">posix</a></li>
+<li><a href="/core/sys/unix">unix</a></li>
 <li><a href="/core/sys/valgrind">valgrind</a></li>
 <li><a href="/core/sys/windows">windows</a></li>
 </ul>
@@ -1854,12 +1855,12 @@ Procedure Groups (0)</summary>
 	pbi_xstatus:      <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
 	pbi_pid:          <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
 	pbi_ppid:         <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
-	pbi_uid:          posix.<a class="code-typename" href="/core/sys/posix/#uid_t">uid_t</a>,
-	pbi_gid:          posix.<a class="code-typename" href="/core/sys/posix/#gid_t">gid_t</a>,
-	pbi_ruid:         posix.<a class="code-typename" href="/core/sys/posix/#uid_t">uid_t</a>,
-	pbi_rgid:         posix.<a class="code-typename" href="/core/sys/posix/#gid_t">gid_t</a>,
-	pbi_svuid:        posix.<a class="code-typename" href="/core/sys/posix/#uid_t">uid_t</a>,
-	pbi_svgid:        posix.<a class="code-typename" href="/core/sys/posix/#gid_t">gid_t</a>,
+	pbi_uid:          posix.<a class="code-typename" href="//#uid_t">uid_t</a>,
+	pbi_gid:          posix.<a class="code-typename" href="//#gid_t">gid_t</a>,
+	pbi_ruid:         posix.<a class="code-typename" href="//#uid_t">uid_t</a>,
+	pbi_rgid:         posix.<a class="code-typename" href="//#gid_t">gid_t</a>,
+	pbi_svuid:        posix.<a class="code-typename" href="//#uid_t">uid_t</a>,
+	pbi_svgid:        posix.<a class="code-typename" href="//#gid_t">gid_t</a>,
 	rfu_1:            <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
 	pbi_comm:         [16]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> <span class="string">`fmt:"s,0"`</span>,
 	pbi_name:         [32]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> <span class="string">`fmt:"s,0"`</span>,
@@ -1884,12 +1885,12 @@ Procedure Groups (0)</summary>
 	pbsi_status: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
 	pbsi_comm:   [16]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a> <span class="string">`fmt:"s,0"`</span>,
 	pbsi_flags:  <span class="keyword-type">bit_set</span>[<a class="code-typename" href="/core/sys/darwin/#PBI_Flag_Bits">PBI_Flag_Bits</a>; <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>],
-	pbsi_uid:    posix.<a class="code-typename" href="/core/sys/posix/#uid_t">uid_t</a>,
-	pbsi_gid:    posix.<a class="code-typename" href="/core/sys/posix/#gid_t">gid_t</a>,
-	pbsi_ruid:   posix.<a class="code-typename" href="/core/sys/posix/#uid_t">uid_t</a>,
-	pbsi_rgid:   posix.<a class="code-typename" href="/core/sys/posix/#gid_t">gid_t</a>,
-	pbsi_svuid:  posix.<a class="code-typename" href="/core/sys/posix/#uid_t">uid_t</a>,
-	pbsi_svgid:  posix.<a class="code-typename" href="/core/sys/posix/#gid_t">gid_t</a>,
+	pbsi_uid:    posix.<a class="code-typename" href="//#uid_t">uid_t</a>,
+	pbsi_gid:    posix.<a class="code-typename" href="//#gid_t">gid_t</a>,
+	pbsi_ruid:   posix.<a class="code-typename" href="//#uid_t">uid_t</a>,
+	pbsi_rgid:   posix.<a class="code-typename" href="//#gid_t">gid_t</a>,
+	pbsi_svuid:  posix.<a class="code-typename" href="//#uid_t">uid_t</a>,
+	pbsi_svgid:  posix.<a class="code-typename" href="//#gid_t">gid_t</a>,
 	pbsi_rfu:    <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
 }</pre>
 </div>
@@ -2011,8 +2012,8 @@ Procedure Groups (0)</summary>
 	vst_mode:          <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>,
 	vst_nlink:         <a href="/base/builtin#u16"><span class="doc-builtin">u16</span></a>,
 	vst_ino:           <a href="/base/builtin#u64"><span class="doc-builtin">u64</span></a>,
-	vst_uid:           posix.<a class="code-typename" href="/core/sys/posix/#uid_t">uid_t</a>,
-	vst_gid:           posix.<a class="code-typename" href="/core/sys/posix/#gid_t">gid_t</a>,
+	vst_uid:           posix.<a class="code-typename" href="//#uid_t">uid_t</a>,
+	vst_gid:           posix.<a class="code-typename" href="//#gid_t">gid_t</a>,
 	vst_atime:         <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>,
 	vst_atimensec:     <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>,
 	vst_mtime:         <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>,
@@ -2021,7 +2022,7 @@ Procedure Groups (0)</summary>
 	vst_ctimensec:     <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>,
 	vst_birthtime:     <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>,
 	vst_birthtimensec: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>,
-	vst_size:          posix.<a class="code-typename" href="/core/sys/posix/#off_t">off_t</a>,
+	vst_size:          posix.<a class="code-typename" href="//#off_t">off_t</a>,
 	vst_blocks:        <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>,
 	vst_blksize:       <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>,
 	vst_flags:         <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>,
@@ -3280,19 +3281,19 @@ EINVAL	:	The operation associated with existing kernel state</p>
 <div class="pkg-entity">
 <h3 id="proc_pid_rusage"><span><a class="doc-id-link" href="#proc_pid_rusage">proc_pid_rusage<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sys/darwin/proc.odin#L15"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">proc_pid_rusage :: <span class="keyword-type">proc</span> <span class="string">"c"</span> (pid: posix.<a class="code-typename" href="/core/sys/posix/#pid_t">pid_t</a>, flavor: <a class="code-typename" href="/core/sys/darwin/#Pid_Rusage_Flavor">Pid_Rusage_Flavor</a>, buffer: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">proc_pid_rusage :: <span class="keyword-type">proc</span> <span class="string">"c"</span> (pid: posix.<a class="code-typename" href="//#pid_t">pid_t</a>, flavor: <a class="code-typename" href="/core/sys/darwin/#Pid_Rusage_Flavor">Pid_Rusage_Flavor</a>, buffer: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="proc_pidinfo"><span><a class="doc-id-link" href="#proc_pidinfo">proc_pidinfo<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sys/darwin/proc.odin#L12"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">proc_pidinfo :: <span class="keyword-type">proc</span> <span class="string">"c"</span> (pid: posix.<a class="code-typename" href="/core/sys/posix/#pid_t">pid_t</a>, flavor: <a class="code-typename" href="/core/sys/darwin/#PID_Info_Flavor">PID_Info_Flavor</a>, arg: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>, buffer: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, buffersize: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">proc_pidinfo :: <span class="keyword-type">proc</span> <span class="string">"c"</span> (pid: posix.<a class="code-typename" href="//#pid_t">pid_t</a>, flavor: <a class="code-typename" href="/core/sys/darwin/#PID_Info_Flavor">PID_Info_Flavor</a>, arg: <a href="/base/builtin#i64"><span class="doc-builtin">i64</span></a>, buffer: <a href="/base/builtin#rawptr"><span class="doc-builtin">rawptr</span></a>, buffersize: <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
 <h3 id="proc_pidpath"><span><a class="doc-id-link" href="#proc_pidpath">proc_pidpath<span class="a-hidden">&nbsp;¶</span></a></span><div class="doc-source"><a href="https://github.com/odin-lang/Odin/tree/master/core/sys/darwin/proc.odin#L13"><em>Source</em></a></div></h3>
 <div>
-<pre class="doc-code">proc_pidpath :: <span class="keyword-type">proc</span> <span class="string">"c"</span> (pid: posix.<a class="code-typename" href="/core/sys/posix/#pid_t">pid_t</a>, buffer: [^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, buffersize: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
+<pre class="doc-code">proc_pidpath :: <span class="keyword-type">proc</span> <span class="string">"c"</span> (pid: posix.<a class="code-typename" href="//#pid_t">pid_t</a>, buffer: [^]<a href="/base/builtin#u8"><span class="doc-builtin">u8</span></a>, buffersize: <a href="/base/builtin#u32"><span class="doc-builtin">u32</span></a>) -> <a href="/base/builtin#i32"><span class="doc-builtin">i32</span></a> ---</pre>
 </div>
 </div>
 <div class="pkg-entity">
@@ -3775,7 +3776,7 @@ EINVAL	:	The operation associated with existing kernel state</p>
 <li><em>(hidden platform specific files)</em></li>
 </ul>
 <h2 id="pkg-generation-information">Generation Information</h2>
-<p>Generated with <code>odin version dev-2024-10 (vendor "odin") Windows_amd64 @ 2024-10-29 21:12:29.750246100 +0000 UTC</code></p>
+<p>Generated with <code>odin version dev-2024-10 (vendor "odin") Windows_amd64 @ 2024-10-30 21:11:16.546987200 +0000 UTC</code></p>
 </article>
 <div class="col-lg-2 odin-toc-border navbar-light"><div class="sticky-top odin-below-navbar py-3">
 <nav id="TableOfContents">
